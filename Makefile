@@ -2,6 +2,18 @@
 IMAGE_NAME = de_mini_project_12
 DOCKER_ID_USER = siliconshells
 
+test:
+	python -m pytest -vv test_*.py
+
+format:	
+	black *.py 
+
+lint:
+	ruff check *.py 
+
+container-lint:
+	docker run --rm -i hadolint/hadolint < Dockerfile
+
 # Build the Docker image
 build:
 	docker build -t $(IMAGE_NAME) .
@@ -28,14 +40,3 @@ push:
 login:
 	docker login -u ${DOCKER_ID_USER}
 
-test:
-	python -m pytest -vv test_*.py
-
-format:	
-	black *.py 
-
-lint:
-	ruff check *.py 
-
-container-lint:
-	docker run --rm -i hadolint/hadolint < Dockerfile
