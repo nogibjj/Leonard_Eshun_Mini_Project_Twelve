@@ -14,7 +14,7 @@ COPY . /app
 # using --no-cache-dir to not cache the packages and save space
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Make port 5000 available to the world outside this container
+# Make port 5005 available to the world outside this container
 EXPOSE 5005
 
 # Define environment variable

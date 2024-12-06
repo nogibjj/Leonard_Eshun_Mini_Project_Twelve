@@ -1,46 +1,32 @@
-# Data Engineering Mini Project One - Leonard Eshun
+# Data Engineering Mini Project Twelve
 
 [![CI](https://github.com/nogibjj/Leonard_Eshun_Mini_Project_One/actions/workflows/workflow.yml/badge.svg)](https://github.com/nogibjj/Leonard_Eshun_Mini_Project_One/actions/workflows/workflow.yml)
 
 
-This repository is created as an assignment from the Data Engineering course, IDS 706. The aim is to create a python project template that contains functioning placeholders for key python project best-practice elements.
+This repository is created as an assignment from the Data Engineering course, IDS 706. The aim is to create a simple python application containerized with a dockerfile. 
 
 The requirements are:
-
-1. .devcontainer  to ensure consistency, portability, and isolation for projects' development environment.
-1. Makefile (with commands for setup, testing, and linting)
-1. Have a functioning CI/CD for setup, lint, test (with a badge on the readme)
-1. README.md with setup and usage instructions
-1. Housed in a public version control Source Code Management Repository (SCM) repository (GitHub, GitLab, BitBucket, Gitea, etc.) 
+The goal here is to both demonstrate running your application within a docker container (using docker run terminal commands) but to also build a docker image in your CI/CD pipeline which will be pushed to Docker Hub or other container management service.
 
 
 
 ## This is what the python code does
-It has two functions:
 
-1. **get_the_capital_of_a_country** to get the capital city of a country
-	```
-	get_the_capital_of_a_country(country: str) -> str
-	```
-1. **add** to add two numbers
-	```
-	add(a, a)
-	```
+The python code creates a Flask web application that connects to an api, exchangerate-api.com, to convert one current to another based on the request made by the client.
 
-
-> [!TIP]
-> Just clone the repository to your local machine or codespace and enjoy.
-
-
+![Currency Converter](images/currency_converter.png)
 
 ## Steps taken to meet the requirements
-The code was pushed to Github and Github Actions did the following main things:
+1. A docker file was created that uses the official python debian image
+1. It does the following:
+	- set the working folder
+	- copies the flask application into the working folder
+	- installs all the application requirements listed in the requirements.txt file
+	- creates the port for external access to the application
+	- sets Flask enveronment variable the indicates the location of the Flask app
+	- finally executes the Flask command to run the web app within the docker container
+1. A Github workflow was created to login to Docker Hub, build the Docker Image and push it to Docker Hub
+1. 
 
-1. Setup the virtual environment according to the parameters in the workflow.yml
-1. Packages were installed, including those in the requirements.txt file
-1. All python files were formated by black
-1. Code linting was done
-1. Finally all the tests in the test_main.py were executed
-
-> [!IMPORTANT]
-> All the above steps had to be successful to get a completed CI/CD.
+## Echange Rate API
+https://app.exchangerate-api.com
