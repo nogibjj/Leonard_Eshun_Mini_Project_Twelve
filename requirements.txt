@@ -4,3 +4,4 @@ black==22.3.0
 pytest==7.4.0
 pylint==2.15.3
 flask == 2.2.5
+dotenv==16.4.7
