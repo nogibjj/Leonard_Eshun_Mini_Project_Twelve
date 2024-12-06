@@ -14,8 +14,8 @@ COPY . /app
 # using --no-cache-dir to not cache the packages and save space
 RUN pip install --no-cache-dir -r requirements.txt
 
-# # Make port 5005 available to the world outside this container
-# EXPOSE 5005
+# Make port 5005 available to the world outside this container
+EXPOSE 5003
 
 # Define environment variable
 # FLASK_APP is a framework specific environmnent variable that tells
