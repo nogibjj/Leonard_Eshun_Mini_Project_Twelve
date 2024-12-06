@@ -14,8 +14,8 @@ COPY . /app
 # using --no-cache-dir to not cache the packages and save space
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Make port 5005 available to the world outside this container
-EXPOSE 5005
+# # Make port 5005 available to the world outside this container
+# EXPOSE 5005
 
 # Define environment variable
 # FLASK_APP is a framework specific environmnent variable that tells
@@ -29,4 +29,4 @@ ENV FLASK_APP=app.py
 
 #a more secure option would be to specify the exact IP you plan to use 
 # (e.g.API gateway interface)
-CMD ["flask", "run", "--host=0.0.0.0"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5003"]
