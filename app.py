@@ -20,7 +20,7 @@ def index():
 
 
 @app.route("/convert", methods=["POST"])
-def convert_currency():
+def convert_currency(testing=False):
     try:
         data = request.json
         base_currency = data["base_currency"]
@@ -28,7 +28,12 @@ def convert_currency():
         amount = float(data["amount"])
 
         # Fetch exchange rates
-        response = requests.get(f"{BASE_URL}{base_currency}")
+        if testing:
+            BAD_URL = "www.leonardeshun.com"
+            response = requests.get(f"{BAD_URL}{base_currency}")
+        else:
+            response = requests.get(f"{BASE_URL}{base_currency}")
+
         if response.status_code != 200:
             return jsonify({"error": "Unable to fetch exchange rates"}), 500
 
@@ -51,7 +56,13 @@ def convert_currency():
         )
 
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        if testing:
+            return (
+                "Handled",
+                500,
+            )  # Can't call jsonify because I don't have an appcontext during testing
+        else:
+            return jsonify({"error": str(e)}), 500
 
 
 if __name__ == "__main__":

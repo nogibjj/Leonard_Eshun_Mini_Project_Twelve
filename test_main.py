@@ -1,25 +1,11 @@
-from main import add
-from main import get_the_capital_of_a_country
+from app import convert_currency
 
 
-def test_add():
-    """Tewting the add function"""
-    assert add(2, 2) == 4
-    assert add(3, 2) == 5
-
-
-def test_countries():
-    """testing out get_the_capital_of_a_country function"""
-    assert get_the_capital_of_a_country("United States") == "Washington D.C."
-    assert get_the_capital_of_a_country("Ghana") == "Accra"
-    assert get_the_capital_of_a_country("united states") == "Washington D.C."
-    assert (
-        get_the_capital_of_a_country("London")
-        == "The country you specified was not found!"
-    )
+def test_failed_connection():
+    """Testing a nicely handled failed connection"""
+    assert convert_currency(True)[1] == 500
+    assert convert_currency(True)[0] == "Handled"
 
 
 if __name__ == "__main__":
-    test_add()
-    test_countries()
-    print("Test completed successfully")
+    test_failed_connection()

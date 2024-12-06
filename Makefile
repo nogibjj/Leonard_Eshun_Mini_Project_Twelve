@@ -27,3 +27,16 @@ push:
 
 login:
 	docker login -u ${DOCKER_ID_USER}
+
+
+test:
+	python -m pytest -vv test_*.py
+
+format:	
+	black *.py 
+
+lint:
+	ruff check *.py 
+
+container-lint:
+	docker run --rm -i hadolint/hadolint < Dockerfile

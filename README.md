@@ -16,7 +16,7 @@ The python code creates a Flask web application that connects to an api, exchang
 ![Currency Converter](images/currency_converter.png)
 
 ## Steps taken to meet the requirements
-1. A docker file to be used when building the image was created and it uses the official python debian image.
+1. A docker file for building the image was created and it uses the official python debian image.
 1. It does the following:
 	- set the working folder
 	- copies the flask application into the working folder
@@ -24,8 +24,11 @@ The python code creates a Flask web application that connects to an api, exchang
 	- creates the port for external access to the application
 	- sets Flask enveronment variable the indicates the location of the Flask app
 	- finally executes the Flask command to run the web app within the docker container
-1. A Github workflow was created to login to Docker Hub, build the Docker Image and push it to Docker Hub.
-1. 
+1. A Github workflow was created to login to Docker Hub, build the Docker Image and push it to my Docker Hub repositories.
+1. Standard CI testing, formating and linting was added.   
+
+The pushed Docker image can be found at:     
+[The project's Docker Image's public link](https://hub.docker.com/r/siliconshells/de_mini_project_12)
 
 ## Echange Rate API
 https://app.exchangerate-api.com
