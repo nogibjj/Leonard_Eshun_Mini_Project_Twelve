@@ -8,19 +8,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: lint
-      run: make lint
-
-    - name: test
-      run: make test
-
-    - name: format
-      run: make format
-
     - name: Checkout repository
       uses: actions/checkout@v2
+    - name: lint
+      run: make lint
+    - name: test
+      run: make test
+    - name: format
+      run: make format
 
     - name: Log in to Docker Hub
       uses: docker/login-action@v1
