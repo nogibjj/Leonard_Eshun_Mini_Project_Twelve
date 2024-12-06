@@ -11,6 +11,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+    - name: install packages
+      run: make install
     - name: lint
       run: make lint
     - name: test

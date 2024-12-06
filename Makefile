@@ -2,6 +2,10 @@
 IMAGE_NAME = de_mini_project_12
 DOCKER_ID_USER = siliconshells
 
+install:
+	pip install --upgrade pip &&\
+		pip install -r requirements.txt
+		
 test:
 	python -m pytest -vv test_*.py
 
