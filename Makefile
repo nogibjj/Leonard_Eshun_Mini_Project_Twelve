@@ -1,5 +1,5 @@
 # Define the image name
-IMAGE_NAME = de_mini_project_11
+IMAGE_NAME = de_mini_project_12
 DOCKER_ID_USER = siliconshells
 
 # Build the Docker image
