@@ -5,3 +5,4 @@ actions
 .DS_Store
 .env
 Misc
+.ruff_cache

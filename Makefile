@@ -28,7 +28,6 @@ push:
 login:
 	docker login -u ${DOCKER_ID_USER}
 
-
 test:
 	python -m pytest -vv test_*.py
 
