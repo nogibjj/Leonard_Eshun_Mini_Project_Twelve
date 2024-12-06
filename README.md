@@ -26,6 +26,7 @@ The python code creates a Flask web application that connects to an api, exchang
 	- finally executes the Flask command to run the web app within the docker container
 1. A Github workflow was created to login to Docker Hub, build the Docker Image and push it to my Docker Hub repositories.
 1. Standard CI testing, formating and linting was added.   
+1. After pushing to Docker Hub, I pulled it to my Docker Desktop to test and fix any dependency problems by updating the requirements file and pushing to Github to start the entire CI/CD process again.
 
 The pushed Docker image can be found at:     
 [The project's Docker Image's public link](https://hub.docker.com/r/siliconshells/de_mini_project_12)
